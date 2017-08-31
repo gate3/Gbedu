@@ -1,0 +1,52 @@
+<div class="col-xs-12 no-padding player-container" 
+    [@flyInOut]="'in'"
+    >
+    <!--(panstart)="swiped($event)"-->
+    <div class="col-xs-12 no-padding">
+        <md-progress-bar
+            class="progress-bar"
+            color="primary"
+            mode="determinate"
+            [value]="position">
+        </md-progress-bar>  
+        <div class="col-xs-12" style="position:absolute;top:-20px;">
+            <div class="col-xs-6 no-padding track-position-text">
+                {{currentTime}}
+            </div>
+            <div class="col-xs-6 no-padding track-position-text" 
+                 style="display:flex;justify-content:flex-end">
+                {{duration}}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-5 col-md-3 no-padding song-details">  
+        <div class="col-xs-4 col-lg-3">
+            <img src="{{song.image||altImage}}" class="img-circle img-responsive song-image" />
+        </div>
+        <div class="col-xs-8 col-lg-9 no-padding">
+            <h4 class="no-margin song-title">{{song.name}}</h4>
+            <p class="no-margin song-title">{{song.artist}}</p>
+        </div>
+    </div>
+
+    <div class="col-xs-5 col-md-5 col-lg-3 no-padding song-details">
+        <player-controls 
+            (selectedControl)="controlClicked($event)">
+        </player-controls>
+    </div>
+    <div class="col-xs-2 hidden-lg no-padding">
+        <button type="button" class="icon-button" [mdMenuTriggerFor]="menu">
+            <i class="material-icons">more_vert</i>
+        </button>
+        <!--<button type="button" class="icon-button hidden-sm hidden-md" [mdMenuTriggerFor]="menu">
+            <i class="material-icons">keyboard_arrow_up</i>
+        </button>-->
+    </div>
+</div>
+
+<md-menu #menu="mdMenu">
+    <button md-menu-item>
+        <span>Repeat</span>
+    </button>
+</md-menu>

@@ -1,0 +1,17 @@
+<app-header (sideNavClick)="sidenav.open()"></app-header>
+
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    Jolly good!
+  </md-sidenav>
+  <div class="my-content">
+    <router-outlet></router-outlet>
+
+  </div>
+</md-sidenav-container>
+<div *ngIf="isPlayerVisible"
+    class="col-xs-12 no-padding" 
+    style="position:fixed"
+    [style.bottom.px]="topPosition">
+  <bottom-player [song]="music" (openMusicDialog)="openDialog($event)"></bottom-player>
+</div>

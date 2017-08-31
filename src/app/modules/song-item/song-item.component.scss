@@ -1,0 +1,25 @@
+.music-card{
+    /*height: 230px!important;*/
+    min-height: 230px !important;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+.music-card img{
+    height: auto;
+    /*height: 180px;
+    max-height: 200px;*/
+}
+.song-title{
+    margin: 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.song-artiste{
+    margin:0px;
+    /*text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;*/
+}

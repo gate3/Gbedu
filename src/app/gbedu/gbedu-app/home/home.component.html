@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <a [routerLink]="['/']" class="router-link">
+        <h2 class="heading">Top Songs</h2>
+    </a>
+    <div class="containerX">
+        <div fxLayout="row wrap">
+
+                <div fxFlex.xs="50%" 
+                    fxFlex.md="33.33%" 
+                    fxFlex.lg="25%"
+                    fxFlex.xl="20%"
+                    class="song-div"
+                    *ngFor="let r of recentSongs;let i = index"> 
+                    <song-item [song]="r"></song-item>     
+                </div>
+
+        </div>
+    </div>
+</div>
+<!--<audio src="https://api.soundcloud.com/tracks/339022070/stream?client_id=vCrJOCBiaW5wdhpBD0bV6nUaNYCbYNZI" controls></audio>-->

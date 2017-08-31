@@ -1,0 +1,19 @@
+<div class="col-xs-12 text-center no-padding">
+    <button type="button" class="icon-button hidden-xs hidden-sm" 
+            (click)="controlClick(controls.shuffle)">
+        <i class="material-icons grow">shuffle</i>
+    </button>
+    <button type="button" class="icon-button" (click)="controlClick(controls.back)">
+        <i class="material-icons grow">fast_rewind</i>
+    </button>
+    <button type="button" class="icon-button" (click)="controlClick(controls.play)">
+        <i class="material-icons grow">{{playPauseCtrl}}</i>
+    </button>
+    <button type="button" class="icon-button" (click)="controlClick(controls.next)">
+        <i class="material-icons grow">fast_forward</i>
+    </button>
+    <button type="button" class="icon-button hidden-xs hidden-sm" 
+            (click)="controlClick(controls.repeat)">
+        <i class="material-icons grow">repeat</i>
+    </button>
+</div>

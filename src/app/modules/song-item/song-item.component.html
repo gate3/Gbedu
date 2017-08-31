@@ -1,0 +1,32 @@
+<md-card class="music-card">
+    <img md-card-image src="{{song.image||altImage}}" />
+    <md-card-content>
+        <div class="col-xs-12 no-padding">
+            <div class="col-xs-10 no-padding">
+                <p class="song-title">{{song.name}}</p>
+            </div>
+            <div class="col-xs-2 no-padding">
+                <button type="button" class="icon-button" [mdMenuTriggerFor]="menu">
+                    <i class="material-icons">more_vert</i>
+                </button>
+            </div>
+        </div>
+        <br/>
+        <p class="song-artiste">{{song.artist}}</p>
+    </md-card-content>
+    <md-card-actions>
+
+    </md-card-actions>
+</md-card>
+
+<md-menu #menu="mdMenu">
+    <button md-menu-item (click)="playSong()">
+        <span>Play</span>
+    </button>
+    <button md-menu-item>
+        <span>Add to playlist</span>
+    </button>
+    <button md-menu-item>
+        <span>Show Artiste</span>
+    </button>
+</md-menu>

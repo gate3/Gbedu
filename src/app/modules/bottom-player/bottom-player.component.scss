@@ -1,0 +1,37 @@
+div.player-container{
+    background-color: rgba(0, 0, 0, 0.8);
+    max-height: 100px;
+    z-index: 10000;
+    padding: 25px 0px 10px;
+}
+.song-image{
+    width: 50px;
+    height: auto;
+}
+.song-details{
+    display: flex;
+    align-items: center;
+}
+button.icon-button i{
+    color: #fff;
+    font-size: 30px;
+}
+button.icon-button{
+    margin: auto;
+}
+.song-title{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+}
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(2.1); }
+.progress-bar {
+    top: -25px;
+    position: absolute;
+}
+.track-position-text{
+    font-size: initial;
+    font-weight: bold;
+}

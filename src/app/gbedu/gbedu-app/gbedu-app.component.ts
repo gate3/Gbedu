@@ -60,10 +60,8 @@ export class GbeduAppComponent {
     onuserproximity(event){
        const {near} = event
        if(near){
-        console.log('near')
         this.musicService.changeStatus(CONSTANTS.PLAYCONTROLS.pause)
        }else{
-        console.log('far')
         this.musicService.changeStatus(CONSTANTS.PLAYCONTROLS.play)
        }
     }

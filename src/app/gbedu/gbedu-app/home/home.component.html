@@ -2,19 +2,27 @@
     <a [routerLink]="['/']" class="router-link">
         <h2 class="heading">Top Songs</h2>
     </a>
-    <div class="containerX">
-        <div fxLayout="row wrap">
-
-                <div fxFlex.xs="50%" 
-                    fxFlex.md="33.33%" 
-                    fxFlex.lg="25%"
-                    fxFlex.xl="20%"
-                    class="song-div"
-                    *ngFor="let r of recentSongs;let i = index"> 
-                    <song-item [song]="r"></song-item>     
-                </div>
-
-        </div>
+    <div *ngIf="isLoading === true; then loading else music">
     </div>
 </div>
-<!--<audio src="https://api.soundcloud.com/tracks/339022070/stream?client_id=vCrJOCBiaW5wdhpBD0bV6nUaNYCbYNZI" controls></audio>-->
+
+<ng-template #loading>
+    <div class="aligner">
+        <md-spinner class="spinner"></md-spinner>         
+    </div> 
+</ng-template>
+
+<ng-template #music>
+    <div class="containerX">
+        <div fxLayout="row wrap">
+            <div fxFlex.xs="50%" 
+                fxFlex.md="33.33%" 
+                fxFlex.lg="25%"
+                fxFlex.xl="20%"
+                class="song-div"
+                *ngFor="let r of recentSongs;let i = index"> 
+                <song-item [song]="r"></song-item>     
+            </div>
+        </div>
+    </div>
+</ng-template>

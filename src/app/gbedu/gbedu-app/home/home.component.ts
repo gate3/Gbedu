@@ -10,16 +10,23 @@ import {Image, MusicApiService, Music} from '../../../services'
 export class HomeComponent implements OnInit{
     
     recentSongs:Array<Songs> = []
+    isLoading:boolean = false;
 
     constructor(private musicApiService: MusicApiService){}
 
     ngOnInit(): void {
-        this.musicApiService.fetchRandomSongs(4).then(
+        this.isLoading = true
+        this.musicApiService.fetchRandomSongs(8).then(
             s=>{
+                this.isLoading = false
                 s.forEach((m)=>{
                     const {title, artwork_url, user,stream_url} = m
-                    //console.log({title, artwork_url, user,stream_url})
-                    this.recentSongs.push(new Songs(artwork_url,title,user.username,stream_url))
+                    let modart:string = artwork_url
+                    if(artwork_url != null){
+                        modart = artwork_url
+                        modart = modart.replace('-large', '-crop')
+                    }                    
+                    this.recentSongs.push(new Songs(modart,title,user.username,stream_url))
                 })
             },
         ).catch(e=>console.log(e))

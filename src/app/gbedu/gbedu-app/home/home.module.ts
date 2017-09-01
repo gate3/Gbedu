@@ -8,13 +8,17 @@ import {SongItemModule} from '../../../modules'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { OwlModule } from 'ngx-owl-carousel';
+
+import {MdProgressSpinnerModule} from '@angular/material';
+
 @NgModule({
     imports: [
         HomeRoutingModule,
         CommonModule,
         SongItemModule,
         FlexLayoutModule,
-        OwlModule
+        OwlModule,
+        MdProgressSpinnerModule
     ],
     declarations: [
         HomeComponent,

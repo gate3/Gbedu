@@ -29,7 +29,7 @@ export class GbeduAppComponent {
         this.isPlayerVisible = true
     }
 
-    openDialog (evt) {
+    /*openDialog (evt) {
         const config = {
             height: '100%',
             width:'100%',
@@ -38,5 +38,5 @@ export class GbeduAppComponent {
             }
         }
         this.dialogRef = this.dialog.open(SongDialogComponent, config);
-    }
+    }*/
 }   

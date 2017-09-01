@@ -7,9 +7,9 @@ const routes: Routes = [
     path: '', component: GbeduAppComponent,
     children:[
      { path: '', loadChildren: './home/home.module#HomeModule' },
+     { path: 'playlist', loadChildren: './playlist/playlist.module#PlaylistModule' },
     ]
   }
-
 ];
 
 @NgModule({

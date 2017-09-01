@@ -14,7 +14,7 @@ export class MusicApiService {
   private _generalTracks = 'tracks?'
 
   fetchRandomSongs (quantity:number) { 
-    const url = this._rootUrl+this._generalTracks+'&kind=top&limit='+quantity+'&'+this._clientKey;
+    const url = this._rootUrl+this._generalTracks+'kind=top&limit='+quantity+'&'+this._clientKey;
     return this.http.get(url)
              .toPromise()
              .then(response =>{ 
@@ -24,7 +24,6 @@ export class MusicApiService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
 }

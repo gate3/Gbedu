@@ -11,16 +11,32 @@ export class MusicApiService {
   private _secret:string = 'ascGMYWf7ToWJHIkXtOdSpPPOv972n5V';
   private _rootUrl:string = 'https://api.soundcloud.com/'
   
-  private _generalTracks = 'tracks?'
+  //private _generalTracks:string = 'tracks?'
+  //private _playlists:string = 'playlists?'
 
-  fetchRandomSongs (quantity:number) { 
-    const url = this._rootUrl+this._generalTracks+'kind=top&limit='+quantity+'&'+this._clientKey;
-    return this.http.get(url)
-             .toPromise()
-             .then(response =>{ 
-                 return response.json()
-             })
-             .catch(this.handleError);
+  private _url:string = '';
+
+  private _prepareQuery (type:string, quantity:number) {
+    return this._rootUrl+type+'kind=top&limit='+quantity+'&'+this._clientKey;
+  }
+
+  randomSongs (quantity:number) { 
+    this._url = this._prepareQuery('tracks?',quantity)
+    return this
+  }
+
+  playlistSongs (quantity:number) {
+    this._url = this._prepareQuery('playlists?', quantity)
+    return this
+  }
+
+  performFetch () {
+    return this.http.get(this._url)
+    .toPromise()
+    .then(response =>{ 
+        return response.json()
+    })
+    .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

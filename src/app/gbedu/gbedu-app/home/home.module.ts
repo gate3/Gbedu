@@ -17,7 +17,6 @@ import {MdProgressSpinnerModule} from '@angular/material';
         CommonModule,
         SongItemModule,
         FlexLayoutModule,
-        OwlModule,
         MdProgressSpinnerModule
     ],
     declarations: [

@@ -1,9 +1,20 @@
 <div class="container-fluid">
-    <a [routerLink]="['/']" class="router-link">
-        <h2 class="heading">Top Songs</h2>
-    </a>
-    <div *ngIf="isLoading === true; then loading else music">
+    <div class="col-xs-12">
+        <a [routerLink]="['/']" class="router-link">
+            <h2 class="heading">Random Songs</h2>
+        </a>
+        <div *ngIf="isLoading === true; then loading else music">
+        </div>
     </div>
+
+    <!--<div class="col-xs-12">
+            <a [routerLink]="['/']" class="router-link">
+                <h2 class="heading">Playlists</h2>
+            </a>
+            <div *ngIf="isLoading === true; then loading else playlist">
+            </div>
+    </div>-->
+    
 </div>
 
 <ng-template #loading>
@@ -20,9 +31,24 @@
                 fxFlex.lg="25%"
                 fxFlex.xl="20%"
                 class="song-div"
-                *ngFor="let r of recentSongs;let i = index"> 
+                *ngFor="let r of randSongs;let i = index"> 
                 <song-item [song]="r"></song-item>     
             </div>
         </div>
     </div>
 </ng-template>
+
+<!--<ng-template #playlist>
+        <div class="containerX">
+            <div fxLayout="row wrap">
+                <div fxFlex.xs="50%" 
+                    fxFlex.md="33.33%" 
+                    fxFlex.lg="25%"
+                    fxFlex.xl="20%"
+                    class="song-div"
+                    *ngFor="let p of playlistSongs;let i = index"> 
+                    <song-item [song]="r"></song-item>     
+                </div>
+            </div>
+        </div>
+</ng-template>-->

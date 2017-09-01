@@ -20,10 +20,13 @@ export class PlayerControlsComponent {
 
     constructor (musicService:MusicService) {
         musicService.songStatus$.subscribe(status => {
-            if(status){
-                this._showPlayBtn()
-            }else{
-                this._showPauseBtn()
+            switch (status){
+                case CONSTANTS.PLAYCONTROLS.pause:
+                    this._showPlayBtn()
+                    break
+                case CONSTANTS.PLAYCONTROLS.play:
+                    this._showPauseBtn()
+                    break
             }
         });
     }

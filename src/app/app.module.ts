@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
-import { HttpModule,JsonpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 
-import {MusicService,MusicApiService} from './services'
+import {MusicService,MusicApiService,ErrorHandlerService} from './services'
 import 'hammerjs';
 
 @NgModule({
@@ -22,11 +22,12 @@ import 'hammerjs';
     FlexLayoutModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    HttpModule,
-    JsonpModule
+    HttpModule
   ],
   providers: [
-    MusicService,MusicApiService
+    MusicService,
+    MusicApiService,
+    ErrorHandlerService
   ],
   bootstrap: [AppComponent]
 })

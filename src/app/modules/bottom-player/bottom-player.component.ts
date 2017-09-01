@@ -36,7 +36,20 @@ export class BottomPlayerComponent implements OnChanges {
     @Output()
     openMusicDialog:EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    constructor (private musicService:MusicService) {}
+    constructor (private musicService:MusicService) {
+        musicService.songStatus$.subscribe(status => {
+            switch (status){
+                case CONSTANTS.PLAYCONTROLS.pause:
+                console.info('pause')
+                    this.pauseTrack()
+                    break
+                case CONSTANTS.PLAYCONTROLS.play:
+                console.info('play')
+                    this.playTrack()
+                    break
+            }
+        });
+    }
 
     swiped (evt) {
         this.openMusicDialog.emit(evt)
@@ -47,7 +60,7 @@ export class BottomPlayerComponent implements OnChanges {
             this.stopTrack()
         }
             this.playTrack()
-            this.musicService.songStopped(false)
+            this.musicService.changeStatus(CONSTANTS.PLAYCONTROLS.play)
     }
 
     controlClicked (id:number) {
@@ -62,12 +75,14 @@ export class BottomPlayerComponent implements OnChanges {
     }
 
     private pauseTrack () {
-        this.sound.pause();
-        this.isPaused = true
+        if(this.sound != null){
+            this.sound.pause();
+            this.isPaused = true
+        }
     }
 
     private stopTrack () {
-        this.musicService.songStopped(true)
+        this.musicService.changeStatus(CONSTANTS.PLAYCONTROLS.pause)
         this.currentTime = '0:00'
         this.position = 0;
         this.duration = '0:00';
@@ -106,7 +121,7 @@ export class BottomPlayerComponent implements OnChanges {
                     requestAnimationFrame(this.updateTrackPosition.bind(this))
                 },
                 onend:()=>{
-                    this.musicService.songStopped(true)
+                    this.musicService.changeStatus(CONSTANTS.PLAYCONTROLS.pause)
                 }
             });
         }

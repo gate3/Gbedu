@@ -5,7 +5,7 @@ import {CommonModule} from '@angular/common'
 import { GbeduAppComponent } from './gbedu-app.component';
 import {GbeduAppRoutingModule} from './gbedu-app-routing.module'
 import {AppHeaderModule,BottomPlayerModule,SongDialogComponent,SongDialogModule} from '../../modules'
-import {MdSidenavModule,MdDialogModule} from '@angular/material';
+import {MdSidenavModule,MdDialogModule,MdSnackBarModule} from '@angular/material';
 
 @NgModule({
     imports: [
@@ -15,7 +15,8 @@ import {MdSidenavModule,MdDialogModule} from '@angular/material';
         BottomPlayerModule,
         CommonModule,
         MdDialogModule,
-        SongDialogModule
+        SongDialogModule,
+        MdSnackBarModule
     ],
     declarations: [
         GbeduAppComponent,

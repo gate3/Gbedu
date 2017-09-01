@@ -6,9 +6,24 @@
 }
 .music-card img{
     height: auto;
-    /*height: 180px;
-    max-height: 200px;*/
+    max-height: 150px;
+    min-height: 150px;
 }
+
+@media (min-width: 992px) {
+    .music-card img{
+        max-height: 300px;
+        min-height: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    .music-card img{
+        max-height: 300px;
+        min-height: 300px;
+    }
+}
+
 .song-title{
     margin: 0px;
     text-overflow: ellipsis;

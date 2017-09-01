@@ -38,7 +38,7 @@
     url(assets/fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
 
-body, .my-content{
+body{
     background-color: #25252e;
     color: #fff;
     font-family: 'Josefin Sans', sans-serif !important;
@@ -101,3 +101,16 @@ a.router-link{
     max-width: initial!important;
     padding: 0px!important;
 }
+.dark-theme{
+    background-color: #25252e;
+    color: #fff!important;
+  }
+  
+  .light-theme{
+    background-color: #f1f1f1;
+    color: #000!important;
+  }
+  
+  .light-theme h2{
+    color: #000!important;
+  }

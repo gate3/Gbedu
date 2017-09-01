@@ -1,8 +1,5 @@
 <div class="container-fluid">
     <div class="col-xs-12">
-        <a [routerLink]="['/']" class="router-link">
-            <h2 class="heading">Random Songs</h2>
-        </a>
         <div *ngIf="isLoading === true; then loading else music">
         </div>
     </div>
@@ -24,6 +21,9 @@
 </ng-template>
 
 <ng-template #music>
+     <a [routerLink]="['/']" class="router-link">
+            <h2 class="heading">Hot Tracks</h2>
+        </a>
     <div class="containerX">
         <div fxLayout="row wrap">
             <div fxFlex.xs="50%" 

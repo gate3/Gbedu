@@ -1,17 +1,45 @@
-<md-toolbar color="primary">
-    <div class="col-xs-12 no-padding">
-        <div class="col-xs-1 hidden-lg hidden-md no-padding">
-            <button type="button" class="icon-button" md-button (click)="openSideNav()">
-                <i class="material-icons">menu</i>
-            </button>
-        </div>
-        <div class="col-xs-10 col-md-12 no-padding text-center app-logo">
-            <h2>Gbedu</h2>
-        </div>
-        <div class="col-xs-1 hidden-lg hidden-md no-padding">
-            <button type="button" class="icon-button" md-button (click)="openSideNav()">
-                <i class="material-icons">search</i>
-            </button>
-        </div>
+<md-toolbar color="primary" class="toolbar">
+    <div *ngIf="isSearchPage === true; then searchHeader else mainHeader">
     </div>
 </md-toolbar>
+
+<ng-template #mainHeader>
+        <div class="col-xs-12 no-padding">
+                <div class="col-xs-1 hidden-lg hidden-md no-padding">
+                    <!--<button type="button" class="icon-button" md-button (click)="openSideNav()">
+                        <i class="material-icons">menu</i>
+                    </button>-->
+                </div>
+                <div class="col-xs-10 col-md-11 no-padding text-center app-logo">
+                    <h2>Gbedu</h2>
+                </div>
+                <div class="col-xs-1 no-padding">
+                    <button type="button" class="icon-button" md-button (click)="toggleSearchPage()">
+                        <i class="material-icons">search</i>
+                    </button>
+                </div>
+            </div>
+
+</ng-template>
+
+<ng-template #searchHeader>
+    <div class="col-xs-12"> 
+        <div class="col-xs-1" style="margin-top:24px">
+                    <button type="button" class="icon-button" md-button (click)="toggleSearchPage()">
+                            <i class="material-icons">arrow_back</i>
+                    </button>
+        </div>
+         <div class="col-xs-11">
+                <form class="example-form">
+                        <md-input-container color="warn" class="example-full-width">
+                          <input type="text" placeholder="Search for a song ..." aria-label="Number" mdInput  [mdAutocomplete]="auto"/>
+                          <md-autocomplete #auto="mdAutocomplete">
+                            <md-option *ngFor="let option of options" [value]="option">
+                              {{ option }}
+                            </md-option>
+                          </md-autocomplete>
+                        </md-input-container>
+                </form>
+         </div>
+    </div>
+</ng-template>

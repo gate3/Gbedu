@@ -19,57 +19,33 @@ export class HomeComponent implements OnInit{
     ngOnInit(): void {
         this.isLoading = true
         this._loadRandomSongs()
-        //this._loadPlaylists()
     }
 
     private _loadRandomSongs ():void {
         this.musicApiService
-        .randomSongs(8)
-        .performFetch()
-        .then(
-            s=>{
-                this.isLoading = false
-                s.forEach((m)=>{
-                    this._processTracks(m,1)
-                })
-            },
-        ).catch(
-            e=>this.errorService.showError(new Error('An Error Occured','An Error Occurred, please try again'))
-        )
-    }
-
-    /*private _loadPlaylists () {
-        this.musicApiService
-        .playlistSongs(8)
+        .searchSongs('olamide')
+        .limit(20)
         .performFetch()
         .then(
             s=>{
                 console.log(s)
                 this.isLoading = false
                 s.forEach((m)=>{
-                    this._processTracks(m,2)
+                    this._processTracks(m)
                 })
             },
         ).catch(
             e=>this.errorService.showError(new Error('An Error Occured','An Error Occurred, please try again'))
         )
-    }*/
+    }
 
-    private _processTracks (m, type):void {
-        const {title, artwork_url, user,stream_url} = m
-        let modart:string = artwork_url
-        if(artwork_url != null){
-            modart = artwork_url
-            modart = modart.replace('-large', '-crop')
+    private _processTracks (m):void {
+        const {artistName, artworkUrl100, trackName, previewUrl} = m
+        let modart:string = artworkUrl100
+        if(modart != null){
+            modart = modart.replace('100x100bb', '300x300bb')
         }                    
-        switch(type){
-            case 1:
-                this.randSongs.push(new Songs(modart,title,user.username,stream_url))
-                break
-            case 2:
-                this.playlistSongs.push(new Songs(modart,title,user.username,stream_url))
-                break
-        }
+        this.randSongs.push(new Songs(modart, trackName, artistName, previewUrl))
     }
 
 }

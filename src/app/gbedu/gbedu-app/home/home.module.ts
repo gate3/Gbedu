@@ -7,8 +7,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import {SongItemModule} from '../../../modules'
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { OwlModule } from 'ngx-owl-carousel';
-
 import {MdProgressSpinnerModule} from '@angular/material';
 
 @NgModule({

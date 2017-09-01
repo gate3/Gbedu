@@ -6,8 +6,10 @@ import 'rxjs/add/operator/toPromise';
 export class MusicApiService {
   
   constructor(private http: Http) { }
-  
-  private _clientKey:string = 'client_id=vCrJOCBiaW5wdhpBD0bV6nUaNYCbYNZI';
+
+  private _rootUrl:string = 'https://itunes.apple.com/search?media=music'
+  private _url:string = this._rootUrl;
+  /*private _clientKey:string = 'client_id=vCrJOCBiaW5wdhpBD0bV6nUaNYCbYNZI';
   private _secret:string = 'ascGMYWf7ToWJHIkXtOdSpPPOv972n5V';
   private _rootUrl:string = 'https://api.soundcloud.com/'
   
@@ -28,13 +30,23 @@ export class MusicApiService {
   playlistSongs (quantity:number) {
     this._url = this._prepareQuery('playlists?', quantity)
     return this
+  }*/
+
+  searchSongs (term:string){
+    this._url += '&term='+encodeURIComponent(term)
+    return this
+  }
+
+  limit (lim:number){
+    this._url += '&limit='+lim;
+    return this
   }
 
   performFetch () {
     return this.http.get(this._url)
     .toPromise()
     .then(response =>{ 
-        return response.json()
+        return response.json().results
     })
     .catch(this.handleError);
   }
@@ -42,4 +54,5 @@ export class MusicApiService {
   private handleError(error: any): Promise<any> {
     return Promise.reject(error.message || error);
   }
+
 }

@@ -8,6 +8,7 @@ const routes: Routes = [
     children:[
      { path: '', loadChildren: './home/home.module#HomeModule' },
      { path: 'playlist', loadChildren: './playlist/playlist.module#PlaylistModule' },
+     { path: 'search', loadChildren: './search/search.module#SearchModule' },
     ]
   }
 ];

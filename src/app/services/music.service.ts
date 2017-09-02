@@ -11,10 +11,12 @@ export class Music {
 export class MusicService {
     public songAdded$: EventEmitter<Music>;
     public songStatus$: EventEmitter<number>; // for play and pause
+    public playPauseToggle$:EventEmitter<boolean>;
 
     constructor() {
         this.songAdded$ = new EventEmitter();
         this.songStatus$ = new EventEmitter();
+        this.playPauseToggle$ = new EventEmitter();
     }
 
     playSong (song:Music):void {
@@ -25,7 +27,7 @@ export class MusicService {
         this.songStatus$.emit(status)//when true song is stopped, when false it's play
     }
 
-    stopSong () {
-
+    togglePlayPause (isPlay:boolean) {
+        this.playPauseToggle$.emit(isPlay)//true for play, false for pause
     }
 }

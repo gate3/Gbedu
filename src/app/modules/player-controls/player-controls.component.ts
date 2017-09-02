@@ -19,14 +19,11 @@ export class PlayerControlsComponent {
     controls = CONSTANTS.PLAYCONTROLS
 
     constructor (musicService:MusicService) {
-        musicService.songStatus$.subscribe(status => {
-            switch (status){
-                case CONSTANTS.PLAYCONTROLS.pause:
-                    this._showPlayBtn()
-                    break
-                case CONSTANTS.PLAYCONTROLS.play:
-                    this._showPauseBtn()
-                    break
+        musicService.playPauseToggle$.subscribe(isPlay => {
+            if(!isPlay){//when paused
+                this._showPlayBtn()
+            }else{//when played
+                this._showPauseBtn()
             }
         });
     }

@@ -44,11 +44,9 @@ export class BottomPlayerComponent implements OnInit,OnChanges {
         this.musicService.songStatus$.subscribe(status => {
             switch (status){
                 case CONSTANTS.PLAYCONTROLS.pause:
-                console.info('pause')
                     this.pauseTrack()
                     break
                 case CONSTANTS.PLAYCONTROLS.play:
-                console.info('play')
                     this.playTrack()
                     break
             }
@@ -64,7 +62,7 @@ export class BottomPlayerComponent implements OnInit,OnChanges {
             this.stopTrack()
         }
             this.playTrack()
-            this.musicService.changeStatus(CONSTANTS.PLAYCONTROLS.play)
+            this.musicService.togglePlayPause(true)
     }
 
     controlClicked (id:number) {
@@ -93,6 +91,7 @@ export class BottomPlayerComponent implements OnInit,OnChanges {
 
         if(this.sound != null){
             this.sound.stop()
+            this.isPaused = false
         }
     }
 
@@ -113,7 +112,8 @@ export class BottomPlayerComponent implements OnInit,OnChanges {
     }
 
     private playTrack () {
-        const url = this.song.streamUrl +'?'+ CONSTANTS.CLIENTID
+        const url = this.song.streamUrl
+        
         if(!this.isPaused){
             this.sound = new Howl({
                 src: [url],

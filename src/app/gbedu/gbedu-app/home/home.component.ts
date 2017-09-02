@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit{
         .performFetch()
         .then(
             s=>{
-                console.log(s)
                 this.isLoading = false
                 s.forEach((m)=>{
                     this._processTracks(m)

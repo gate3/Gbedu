@@ -1,13 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router } from "@angular/router";
-import { animateFactory } from 'ng2-animate';
+//import { animateFactory } from 'ng2-animate';
 
 @Component({
     moduleId: module.id,
     selector: 'app-header',
     templateUrl: 'app-header.component.html',
-    styleUrls: ['app-header.component.scss'],
-    animations: [animateFactory(1000, 200, 'ease-in')]    
+    styleUrls: ['app-header.component.scss']
 })
 export class AppHeaderComponent {
 

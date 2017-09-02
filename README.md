@@ -1,28 +1,48 @@
-# Gbedu
+<p align="center">
+<img src="https://raw.githubusercontent.com/gate3/Gbedu/master/src/assets/img/record.png" alt="ADPlayer" width="100" height="100">
+</p>
+<h1 align="center">Gbedu Player</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
+<div align="center">
+![image](https://raw.githubusercontent.com/gate3/Gbedu/master/gbedu%20v1.gif)
+</div>
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Gbedu is a mobile friendly music player that I just decided to play around with and at thesame time test my hands on angularjs and some web API's. Currently some of the features only work on firefox (proximity and ambient light), but the music player works everywhere
 
-## Code scaffolding
+## Demo
+Check out a demo at [Gbedu app](https://gbedu-974a4.firebaseapp.com)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+## Usage
+Just clone the repo, go into the repo and then run npm install to install all dependencies
 
-## Build
+##Frameworks Used
+- Angular4
+- Angular Material
+- HowlerJs
+- Itunes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Features
+- Proximity sensor to pause and play sound depending on distance
+- Ambient light api to change theme based based on light exposure
+- Music Player
 
-## Running unit tests
+## Upcoming Features
+- Playlists
+- Play different songs/playlist depending on user emotion captured from user's image 
+- Search
+- Looping, Next and Previous controls
+- Battery Status 
+- Offline Player using file api
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contribute
+Pull requests are welcome as well as suggestions
 
-## Running end-to-end tests
+## Author
+**Gbedu Player** © [Doyin Olarewaju](https://github.com/gate3), Released under the [MIT](./LICENSE) License.<br>Authored and maintained by DIYgod with help from contributors ([list](https://github.com/gate3/Gbedu/contributors)).
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Blog [@MyThoughts](https://www.oct-labs.com/doyin) 
+- GitHub [@DoyinOlarewaju](https://github.com/gate3) 
+- Twitter [@OlarewajuDoyin](https://twitter.com/OlarewajuDoyin) 
+- Medium [@doyinolarewaju](https://medium.com/@doyinolarewaju)

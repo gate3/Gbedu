@@ -1,11 +1,11 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/gate3/Gbedu/master/src/assets/img/record.png" alt="ADPlayer" width="100" height="100">
+<img src="https://raw.githubusercontent.com/gate3/Gbedu/master/src/assets/img/record.png" alt="Gbedu" width="100" height="100">
 </p>
 <h1 align="center">Gbedu Player</h1>
 
-<div align="center">
-![image](https://raw.githubusercontent.com/gate3/Gbedu/master/gbedu%20v1.gif)
-</div>
+<p align="center">
+<img src="https://raw.githubusercontent.com/gate3/Gbedu/master/gbedu%20v1.gif" alt="ADPlayer">
+</p>
 
 ## Introduction
 
@@ -17,7 +17,7 @@ Check out a demo at [Gbedu app](https://gbedu-974a4.firebaseapp.com)
 ## Usage
 Just clone the repo, go into the repo and then run npm install to install all dependencies
 
-##Frameworks Used
+## Frameworks Used
 - Angular4
 - Angular Material
 - HowlerJs

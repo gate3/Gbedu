@@ -12,7 +12,7 @@
 Gbedu is a mobile friendly music player that I just decided to play around with and at thesame time test my hands on angularjs and some web API's. Currently some of the features only work on firefox (proximity and ambient light), but the music player works everywhere
 
 ## Demo
-Check out a demo at [Gbedu app](https://gbedu-974a4.firebaseapp.com)
+Check out the demo at [Gbedu app](https://gbedu-974a4.firebaseapp.com)
 
 ## Usage
 Just clone the repo, go into the repo and then run npm install to install all dependencies
@@ -40,7 +40,7 @@ Just clone the repo, go into the repo and then run npm install to install all de
 Pull requests are welcome as well as suggestions
 
 ## Author
-**Gbedu Player** © [Doyin Olarewaju](https://github.com/gate3), Released under the [MIT](./LICENSE) License.<br>Authored and maintained by DIYgod with help from contributors ([list](https://github.com/gate3/Gbedu/contributors)).
+**Gbedu Player** © [Doyin Olarewaju](https://github.com/gate3), Released under the [MIT](./LICENSE) License.<br>Authored and maintained by Doyin Olarewaju with help from contributors ([list](https://github.com/gate3/Gbedu/contributors)).
 
 - Blog [@MyThoughts](https://www.oct-labs.com/doyin) 
 - GitHub [@DoyinOlarewaju](https://github.com/gate3) 

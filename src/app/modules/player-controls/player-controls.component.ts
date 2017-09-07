@@ -1,4 +1,4 @@
-import { Component,Output,EventEmitter } from '@angular/core';
+import { Component,Output,EventEmitter,OnDestroy } from '@angular/core';
 import {CONSTANTS,MusicService} from '../../services';
 
 @Component({
@@ -7,7 +7,8 @@ import {CONSTANTS,MusicService} from '../../services';
     templateUrl: 'player-controls.component.html',
     styleUrls: ['player-controls.component.scss']
 })
-export class PlayerControlsComponent {
+export class PlayerControlsComponent implements OnDestroy {
+
     private controlEnum = {
         play:'play_circle_filled',
         pause:'pause_circle_filled'
@@ -17,15 +18,20 @@ export class PlayerControlsComponent {
     selectedControl:EventEmitter<number> = new EventEmitter<number>();
     playPauseCtrl:string = this.controlEnum.play;
     controls = CONSTANTS.PLAYCONTROLS
+    subscription;
 
     constructor (musicService:MusicService) {
-        musicService.playPauseToggle$.subscribe(isPlay => {
+        this.subscription = musicService.playPauseToggle$.subscribe(isPlay => {
             if(!isPlay){//when paused
                 this._showPlayBtn()
             }else{//when played
                 this._showPauseBtn()
             }
         });
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe()
     }
 
     private _showPlayBtn ():void{

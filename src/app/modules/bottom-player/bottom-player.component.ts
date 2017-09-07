@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit,OnDestroy } from '@angular/core';
 import {Image,Music,CONSTANTS,MusicService} from '../../services'
 import { trigger, style, transition, animate, group,state }
     from '@angular/animations';
@@ -19,7 +19,7 @@ import { Howl } from 'howler'
         ])
     ]
 })
-export class BottomPlayerComponent implements OnInit,OnChanges {
+export class BottomPlayerComponent implements OnInit,OnChanges,OnDestroy {
 
     @Input()
     song:Music;
@@ -32,6 +32,8 @@ export class BottomPlayerComponent implements OnInit,OnChanges {
     position:number = 0;
     currentTime:string = '0:00';
     isPaused:boolean;
+    subscription;
+
 
     @Output()
     openMusicDialog:EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -41,7 +43,7 @@ export class BottomPlayerComponent implements OnInit,OnChanges {
     }
 
     ngOnInit(): void {
-        this.musicService.songStatus$.subscribe(status => {
+        this.subscription = this.musicService.songStatus$.subscribe(status => {
             switch (status){
                 case CONSTANTS.PLAYCONTROLS.pause:
                     this.pauseTrack()
@@ -63,6 +65,10 @@ export class BottomPlayerComponent implements OnInit,OnChanges {
         }
             this.playTrack()
             this.musicService.togglePlayPause(true)
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 
     controlClicked (id:number) {

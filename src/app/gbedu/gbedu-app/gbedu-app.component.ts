@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnDestroy } from '@angular/core';
 import { Inject, HostListener } from "@angular/core";
 import { DOCUMENT } from '@angular/platform-browser';
 import {MusicService,Music,
@@ -13,13 +13,15 @@ import {SongDialogComponent} from '../../modules'
     templateUrl: 'gbedu-app.component.html',
     styleUrls: ['gbedu-app.component.scss']
 })
-export class GbeduAppComponent {
-    topPosition:number;
+export class GbeduAppComponent implements OnDestroy{
+    
+    topPosition: number;
     music:Music;
     isPlayerVisible:boolean = false;
     dialogRef;
     snackbarRef:MdSnackBarRef<SimpleSnackBar>;
     theme:string = CONSTANTS.THEME_TYPES.dark
+    subsription;
 
     constructor(@Inject(DOCUMENT) private document: Document, 
                 private musicService: MusicService,
@@ -29,7 +31,7 @@ export class GbeduAppComponent {
 
         this.topPosition = this.document.body.scrollTop
 
-        musicService.songAdded$.subscribe(item => this.displaySong(item));
+        this.subsription = musicService.songAdded$.subscribe(item => this.displaySong(item));
 
         errorService.errorObject$.subscribe(er => {
             this.showSnackBar(`
@@ -79,6 +81,10 @@ export class GbeduAppComponent {
     displaySong (itm:Music) {
         this.music = itm
         this.isPlayerVisible = true
+    }
+
+    ngOnDestroy(): void {
+        this.subsription.unsubscribe();
     }
 
     /*openDialog (evt) {
